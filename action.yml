@@ -15,7 +15,7 @@ inputs:
         description: Should the original .bib file be overwritten?
         default: "False"
     log_file:
-        description: The log file in which to put the output of chktex
+        description: The log file in which to put the output of biber
         default: "biber_output.log"
 
 runs:
