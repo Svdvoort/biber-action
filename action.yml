@@ -1,0 +1,33 @@
+name: Biber Linter
+author: Sebastian van der Voort
+description: Lint your Bib files with biber
+inputs:
+    config:
+        description: The configuration file for chktex
+    args:
+        description: Additional arguments to be passed to chktex
+    root_directory:
+        description: Root directory to from which to check the files. By default the root directory will be used
+    recursive:
+        description: Whether to recursively check all files in subdirectories
+        default: "True"
+    overwrite_original:
+        description: Should the original .bib file be overwritten?
+        default: "False"
+    log_file:
+        description: The log file in which to put the output of chktex
+        default: "biber_output.log"
+
+runs:
+    using: docker
+    image: Dockerfile
+    args:
+        - ${{ inputs.config }}
+        - ${{ inputs.args }}
+        - ${{ inputs.root_directory }}
+        - ${{ inputs.recursive }}
+        - ${{ inputs.overwrite_original }}
+        - ${{ inputs.log_file }}
+branding:
+    icon: edit
+    color: yellow
