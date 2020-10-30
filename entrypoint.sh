@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 config="$1"
 args="$2"
 root_directory="$3"
